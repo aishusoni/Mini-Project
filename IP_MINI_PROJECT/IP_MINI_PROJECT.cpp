@@ -112,6 +112,9 @@ void colorCastBalancing()
 
 		cout << nb << " " << nr << "  " << ng << endl;
 
+		//nr = 0.38;
+		//ng = 0.5;
+		//nb = 0.42;
 		
 
 		for (int i = 0; i < rows; i++)
@@ -122,9 +125,17 @@ void colorCastBalancing()
 				colorBalanced[i][j].resize(3);
 				double maxmi = max(blue[i][j], green[i][j]);
 				maxmi = max(maxmi, red[i][j]);
-				colorBalanced[i][j][0] = min(pow(blue[i][j], nb), maxmi);
-				colorBalanced[i][j][1] = min(pow(green[i][j], ng), maxmi);
-				colorBalanced[i][j][2] = min(pow(red[i][j], nr), maxmi);
+				
+				//colorBalanced[i][j][0] = min(pow(blue[i][j], nb), maxmi);
+				//colorBalanced[i][j][1] = min(pow(green[i][j], ng), maxmi);
+				////colorBalanced[i][j][1] = green[i][j];
+				//colorBalanced[i][j][2] = min(pow(red[i][j], nr), maxmi);
+				
+				double mean = (meanBlue + meanRed + meanGreen)/3;
+				/*
+				colorBalanced[i][j][0] = blue[i][j]*(mean/meanBlue);
+				colorBalanced[i][j][1] = green[i][j]* (mean / meanGreen);
+				colorBalanced[i][j][2] = red[i][j]* (mean / meanRed);*/
 			}
 		}
 	}
